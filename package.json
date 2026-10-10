@@ -1,0 +1,15 @@
+{
+  "name": "stepalong",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Camera-based movement practice in the browser. Plain HTML/CSS/JS, no build step.",
+  "scripts": {
+    "dev": "http-server . -p 8001 -c-1",
+    "test": "node --check app.js && node tests/e2e-smoke.js"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "jsdom": "^30.1.2"
+  }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StepAlong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- INTRO -->
+  <section class="screen active" id="screen-intro">
+    <div class="wrap no-nav">
+      <h1>StepAlong</h1>
+      <p class="sub">A camera-based movement practice companion — no wearables required.</p>
+      <div class="why-card">
+        <p><strong style="color:var(--ink)">Why this exists:</strong> home movement practice for balance and mobility usually has no way to tell you if you're doing it right — no coach watching, no feedback, just guesswork. StepAlong uses your phone or laptop camera to watch your movement in real time and tell you how you're doing, wherever you are.</p>
+        <p>This is a working prototype — swap this note for your own story before it's final.</p>
+      </div>
+      <p class="sub" style="line-height:1.6; margin-bottom:18px;">StepAlong is a student-built prototype, not a medical device. Routines are inspired by published movement research but haven't been clinically tested. If you have a health condition, talk to a doctor or physical therapist before starting a new exercise routine.</p>
+      <p class="privacy-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><strong style="color:var(--ink)">Your camera stays private.</strong> Video is analyzed on your device while you practice. Nothing is uploaded, recorded, or saved.</span></p>
+      <button class="primary" id="introStart">Get Started</button>
+    </div>
+  </section>
+
+  <!-- ROUTINE LIST -->
+  <section class="screen" id="screen-routines">
+    <div class="wrap with-nav">
+      <div class="topbar">
+        <h2>Choose a routine</h2>
+        <div class="a11y-row">
+          <button class="a11y-btn" id="btnLargeText">Aa</button>
+          <button class="a11y-btn" id="btnHighContrast">◐</button>
+          <button class="a11y-btn" id="btnVoice">🔊</button>
+        </div>
+      </div>
+      <p class="sub">Filter by what you want to work on.</p>
+      <div class="chips" id="chips">
+        <button class="chip active" data-cat="all">All</button>
+        <button class="chip" data-cat="legs">Legs &amp; Balance</button>
+        <button class="chip" data-cat="arms">Arms &amp; Coordination</button>
+      </div>
+      <div class="routine-list" id="routineList"></div>
+    </div>
+  </section>
+
+  <!-- SETUP -->
+  <section class="screen" id="screen-setup">
+    <div class="wrap no-nav">
+      <div class="topbar">
+        <h2>Set up your space</h2>
+        <button class="iconbtn" id="closeSetup">✕</button>
+      </div>
+      <p class="sub">A minute of setup makes the tracking much more accurate and keeps practice safe.</p>
+      <ul class="setup-list">
+        <li><div class="n">1</div><div class="t"><strong>Position the camera</strong><span>Prop your phone or laptop at about chest height so it can see you from head to toe.</span></div></li>
+        <li><div class="n">2</div><div class="t"><strong>Step back about 6 feet (2 m)</strong><span>Your whole body, feet included, should fit in the frame.</span></div></li>
+        <li><div class="n">3</div><div class="t"><strong>Light the room</strong><span>Face a light source. Avoid a bright window behind you.</span></div></li>
+        <li><div class="n">4</div><div class="t"><strong>Make it safe</strong><span>Clear the floor, wear non-slip footwear, and keep a sturdy chair or counter within reach. Stop if you feel dizzy or unwell.</span></div></li>
+      </ul>
+      <p class="privacy-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Video is analyzed on your device. Nothing is uploaded, recorded, or saved.</span></p>
+      <button class="primary" id="setupContinue">Got it — let's go</button>
+    </div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="screen" id="screen-practice">
+    <div class="wrap no-nav">
+      <div class="topbar">
+        <div>
+          <h2 id="practiceTitle">Routine</h2>
+          <p class="sub" id="practiceCategory" style="margin-top:2px;"></p>
+        </div>
+        <button class="iconbtn" id="closeToRoutines">✕</button>
+      </div>
+      <p class="sub" id="practiceHint" style="margin-bottom:12px;">Instructions</p>
+
+      <div class="stage" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas"></canvas>
+        <div class="timer-pill" id="timerPill">0:25</div>
+        <div class="beat-pulse" id="beatPulse"></div>
+
+        <div class="stage-empty" id="stageEmpty">
+          <p>Start the camera to begin tracking. Stand back so your whole body is visible.</p>
+          <div class="camera-error" id="cameraError" role="alert"></div>
+          <button class="primary" id="startBtn" style="width:auto;">Start Camera</button>
+          <button class="linkbtn" id="setupTipsLink">Setup tips</button>
+        </div>
+
+        <div class="begin-btn-wrap" id="beginBtnWrap" style="display:none;">
+          <button class="primary" id="beginBtn">Begin Round</button>
+        </div>
+
+        <div class="overlay" id="readyOverlay">
+          <div class="big-num" id="readyNum">3</div>
+          <div style="font-size:13px;color:#D9D5C8;">Stand still — calibrating</div>
+        </div>
+
+        <div class="overlay" id="completeOverlay">
+          <h3>Round complete!</h3>
+          <div class="stats">
+            <div><div class="stat-num" id="statAvg">–</div><div class="stat-label">Avg Score</div></div>
+            <div><div class="stat-num" id="statReps">0</div><div class="stat-label">Reps</div></div>
+          </div>
+          <button class="primary" id="anotherRoundBtn">Do Another Round</button>
+          <button class="ghost" id="doneRoundBtn">Back to Routines</button>
+        </div>
+      </div>
+
+      <div class="score-row">
+        <div class="score-gauge">
+          <svg width="78" height="78" viewBox="0 0 78 78">
+            <circle cx="39" cy="39" r="33" fill="none" stroke="var(--line)" stroke-width="7"/>
+            <circle id="gaugeArc" cx="39" cy="39" r="33" fill="none" stroke="var(--moss)" stroke-width="7" stroke-linecap="round" stroke-dasharray="207" stroke-dashoffset="207"/>
+          </svg>
+          <div class="num" id="scoreNum">–</div>
+        </div>
+        <div class="score-label">
+          <strong>Match</strong>
+          <span>How closely you're matching the target right now.</span>
+          <div class="hold-bar-track"><div class="hold-bar-fill" id="holdBarFill"></div></div>
+        </div>
+      </div>
+
+      <div class="rep-row">
+        <div><div class="count" id="repCount">0</div><div class="sub" style="font-size:11.5px; margin-top:0;">completed</div></div>
+        <div class="tier" id="tierLabel">Tier 1</div>
+      </div>
+
+      <div class="feedback-line" id="feedbackLine"></div>
+      <div class="status-pill" id="statusPill">Camera not started</div>
+
+      <details>
+        <summary>Research behind this routine</summary>
+        <p id="researchNote"></p>
+      </details>
+
+      <details>
+        <summary>How the scoring works</summary>
+        <p>MediaPipe's pose model returns 33 body landmarks per frame. Each routine tracks a specific landmark relationship, normalized by body proportions and smoothed across frames to avoid jitter. A rep counts once you hold a good match (70+) steadily for about half a second — not just pass through it.</p>
+      </details>
+
+      <p class="sub" style="margin-top:14px; line-height:1.6;">Not a medical device. Inspired by published research, not clinically tested — check with a doctor or physical therapist before starting a new exercise routine.</p>
+    </div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section class="screen" id="screen-progress">
+    <div class="wrap with-nav">
+      <div class="topbar"><h2>Your progress</h2></div>
+      <p class="sub">Recent rounds, most recent first.</p>
+      <div class="stats-row" id="statsRow"></div>
+      <div class="trend-card" id="trendCard" style="display:none;">
+        <h4>Score trend (last 10 rounds)</h4>
+        <svg id="trendSvg" viewBox="0 0 280 56" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="progress-list" id="progressList"></div>
+      <p class="empty-note" id="progressEmpty" style="display:none;">No rounds yet — finish a routine to see it here.</p>
+      <button class="ghost danger-ghost" id="resetProgressBtn" style="display:none; margin-top:18px;">Reset progress</button>
+    </div>
+  </section>
+
+  <div class="bottomnav" id="bottomnav">
+    <button class="navbtn active" id="navRoutines"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>Routines</button>
+    <button class="navbtn" id="navProgress"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>Progress</button>
+  </div>
+
+<!-- MediaPipe versions are pinned so a new release can't change behavior before the demo.
+     If you change the pose version, update POSE_VERSION in app.js to match. -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1675466124/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/pose.js" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+</html>
