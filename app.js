@@ -98,7 +98,10 @@
   //  OPPOSITE side from the previous rep. The round score blends reps, range and consistency.
   // =====================================================================
   const LIVE_FULL = 1.2, LIVE_EXP = 1.5, HOLD_GOOD = 70, REARM_BELOW = 35;
-  const READY_MS = 3000, ROUND_MS = 25000;
+  const ROUND_MS = 25000;  // length of one active round (the countdown is 4 ticks x 700 ms, see beginRound)
+
+  // Must match the pose.js version pinned in index.html; the model files are fetched from the same release.
+  const POSE_VERSION = '0.5.1675469404';
   function liveScore(ratio){ return Math.round(100 * Math.pow(clamp01(ratio / LIVE_FULL), LIVE_EXP)); }
 
   const TIER_NAMES = ['Gentle','Steady','Strong'];
@@ -721,6 +724,7 @@
     roundPhase = 'complete';
     if (roundTickId) { clearInterval(roundTickId); roundTickId = null; }
     stopMetronome(); timerPill.style.display = 'none';
+    updateHoldBar(0);  // don't leave a half-filled hold bar under the results overlay
     const free = isFree();
     const target = free ? PACE[activeRoutine.cfg.pace].reps : activeRoutine.tiers[roundTier].reps;
     const res = computeRound(repCount, repPeaks, target, bestLive);
@@ -834,7 +838,14 @@
   function withTimeout(p, ms, msg){ return Promise.race([p, new Promise((_,rej) => setTimeout(() => rej(new Error(msg)), ms))]); }
   let cameraStarted=false, mediaStream=null, rafId=null, poseInstance=null, modelReady=false, loadTimer=null;
   function hideLoading(){ if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; } byId('loadingOverlay').classList.remove('show'); }
-  async function frameLoop(pose){ if (videoEl.readyState >= 2) { await pose.send({image: videoEl}); } rafId = requestAnimationFrame(() => frameLoop(pose)); }
+  // One frame at a time: send the current video frame to MediaPipe, then schedule the next.
+  // try/catch so a single failed frame doesn't silently stop tracking for the rest of the session,
+  // and stop scheduling once the camera has been stopped.
+  async function frameLoop(pose){
+    try { if (videoEl.readyState >= 2) { await pose.send({image: videoEl}); } }
+    catch (e) { console.warn('Pose frame failed:', e); }
+    if (cameraStarted) rafId = requestAnimationFrame(() => frameLoop(pose));
+  }
   function endEverything(){
     if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     if (roundTickId) { clearInterval(roundTickId); roundTickId = null; }
@@ -863,7 +874,7 @@
       mediaStream = await withTimeout(navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}, audio:false}), 8000, 'No response from the camera permission prompt.');
       videoEl.srcObject = mediaStream;
       await withTimeout(videoEl.play(), 5000, 'Video failed to start playing.');
-      poseInstance = new window.Pose({ locateFile:(f) => 'https://cdn.jsdelivr.net/npm/@mediapipe/pose/' + f });
+      poseInstance = new window.Pose({ locateFile:(f) => 'https://cdn.jsdelivr.net/npm/@mediapipe/pose@' + POSE_VERSION + '/' + f });
       poseInstance.setOptions({ modelComplexity:1, smoothLandmarks:true, minDetectionConfidence:0.5, minTrackingConfidence:0.5 });
       poseInstance.onResults(onResults);
       cameraStarted = true; modelReady = false; stageEmpty.style.display = 'none'; statusPill.textContent = 'Loading pose model…';
