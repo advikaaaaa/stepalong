@@ -9,10 +9,10 @@ scores each rep, counts them, and tells you what to work on next.
 
 [**▶ Try it live**](https://advikaaaaa.github.io/stepalong/) · [How the scoring works](docs/scoring.md) · [Run it locally](#run-it-locally)
 
-![Runs in the browser](https://img.shields.io/badge/runs_in-the_browser-111111?style=flat-square)
-![Video stays on device](https://img.shields.io/badge/video-stays_on_device-111111?style=flat-square)
-![MediaPipe Pose](https://img.shields.io/badge/pose_tracking-MediaPipe-FF4A1C?style=flat-square)
-![Vanilla JS](https://img.shields.io/badge/vanilla-HTML_·_CSS_·_JS-FF4A1C?style=flat-square)
+![Runs in the browser](https://img.shields.io/badge/runs_in-the_browser-47614F?style=flat-square)
+![Video stays on device](https://img.shields.io/badge/video-stays_on_device-47614F?style=flat-square)
+![MediaPipe Pose](https://img.shields.io/badge/pose_tracking-MediaPipe-B9812F?style=flat-square)
+![Vanilla JS](https://img.shields.io/badge/vanilla-HTML_·_CSS_·_JS-B9812F?style=flat-square)
 
 <table>
   <tr>
@@ -64,7 +64,7 @@ Each routine has a detail page with what it trains, how to do it, its three tier
 StepAlong is meant for people who may have limited mobility, so accessibility settings are real, app-wide switches. You can set them in the first-time setup and change them any time in Settings:
 
 - **Larger text** across the whole app
-- **High contrast**: black and white with a yellow highlight
+- **High contrast**: a black background with bright, clear colours
 - **Voice coaching**: short spoken tips during a round, so you don't have to watch the screen
 - **Beat sounds** for the rhythm routines, which can be switched off
 - Automatic dark mode, keyboard focus outlines, reduced motion support, and a mobile-first layout
@@ -139,7 +139,7 @@ Plain HTML, CSS and JavaScript, with no framework and no build step. It deploys 
 - [MediaPipe Pose](https://github.com/google-ai-edge/mediapipe) for on-device body landmark detection
 - Web Audio API for the metronome and the Web Speech API for voice coaching
 - Inline SVG for icons, artwork and the progress chart, and `localStorage` for settings and progress
-- [Archivo](https://fonts.google.com/specimen/Archivo) font
+- [Fraunces](https://fonts.google.com/specimen/Fraunces) and [Inter](https://fonts.google.com/specimen/Inter) fonts
 
 ## License
 

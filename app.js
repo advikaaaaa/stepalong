@@ -104,6 +104,19 @@
   const POSE_VERSION = '0.5.1675469404';
   function liveScore(ratio){ return Math.round(100 * Math.pow(clamp01(ratio / LIVE_FULL), LIVE_EXP)); }
 
+  // ---------- icons: one set, 24px grid, 1.75 stroke, round caps (index.html uses the same paths) ----------
+  const ICON_PATHS = {
+      "sway": "<circle cx=\"12\" cy=\"4.25\" r=\"2\"/><path d=\"M12 7v7\"/><path d=\"M12 9.5 9 12.5\"/><path d=\"m12 9.5 3 3\"/><path d=\"m12 14-2 7\"/><path d=\"m12 14 2 7\"/><path d=\"M5 12 2.5 14.5 5 17\"/><path d=\"m19 12 2.5 2.5L19 17\"/>",
+      "heeltoe": "<circle cx=\"9.5\" cy=\"4.25\" r=\"2\"/><path d=\"M9.5 7v7\"/><path d=\"M9.5 9.5 7 12.5\"/><path d=\"m9.5 9.5 2.5 3\"/><path d=\"m9.5 14-1.25 7\"/><path d=\"m9.5 14 1.25 7\"/><path d=\"M18.5 12v9\"/><path d=\"m16.5 14 2-2 2 2\"/><path d=\"m16.5 19 2 2 2-2\"/>",
+      "crossbody": "<circle cx=\"12\" cy=\"4.25\" r=\"2\"/><path d=\"M12 7v7\"/><path d=\"M12 9.5 9.5 13\"/><path d=\"m12 9.5 2.5 3.5\"/><path d=\"m12 14-2 7\"/><path d=\"m12 14 2 7\"/><path d=\"M18 10.5c-2.5-3.5-9.5-3.5-12 0\"/><path d=\"m6 10.5-.2-2.8\"/><path d=\"m6 10.5 2.8-.3\"/>",
+      "march": "<circle cx=\"12\" cy=\"4.25\" r=\"2\"/><path d=\"M12 7v7\"/><path d=\"M12 9.5 9 12.5\"/><path d=\"m12 9.5 2.75-2\"/><path d=\"m12 14-.5 7\"/><path d=\"M12 14h4.5l-.5 4.5\"/>",
+      "free": "<circle cx=\"12\" cy=\"4.25\" r=\"2\"/><path d=\"M12 7v7\"/><path d=\"M12 9.5 7.5 6\"/><path d=\"m12 9.5 4.5-3.5\"/><path d=\"m12 14-3.5 7\"/><path d=\"m12 14 3.5 7\"/><path d=\"M19.5 13.5v3\"/><path d=\"M18 15h3\"/>",
+      "check": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m8.5 12.5 2.5 2.5 4.5-5\"/>",
+      "lock": "<rect x=\"5\" y=\"11\" width=\"14\" height=\"9.5\" rx=\"2\"/><path d=\"M8 11V8a4 4 0 0 1 8 0v3\"/>",
+      "chevron": "<path d=\"m9 6 6 6-6 6\"/>"
+  };
+  function icon(name, size){ return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICON_PATHS[name] + '</svg>'; }
+
   const TIER_NAMES = ['Gentle','Steady','Strong'];
   const ROUTINES = [
     {
@@ -304,19 +317,19 @@
   function loadCustomCfg(){ const c = lsGet(CUSTOM_KEY, null); return (c && Array.isArray(c.parts) && c.parts.length) ? c : { name:'', parts:['arms'], intensity:'medium', pace:'medium' }; }
   let customCfg = loadCustomCfg();
 
-  function makeRow(num, tag, title, desc, best, onClick){
+  function makeRow(iconName, tag, title, desc, best, onClick){
     const card = document.createElement('button'); card.className = 'routine-card';
-    card.innerHTML = '<div class="idx">'+num+'</div><div class="body"><div class="label">'+tag+'</div><h3>'+title+'</h3><p>'+desc+'</p>'+
-      (best !== null ? '<span class="best">Best '+best+'</span>' : '')+'</div><div class="arrow" aria-hidden="true">→</div>';
+    card.innerHTML = '<div class="idx">'+icon(iconName, 26)+'</div><div class="body"><div class="label">'+tag+'</div><h3>'+title+'</h3><p>'+desc+'</p>'+
+      (best !== null ? '<span class="best">Best '+best+'</span>' : '')+'</div><div class="arrow">'+icon('chevron', 20)+'</div>';
     card.addEventListener('click', onClick); return card;
   }
   function renderRoutineList(){
     const container = byId('routineList'); container.innerHTML = '';
     ROUTINES.filter(r => activeCategory === 'all' || r.category === activeCategory).forEach(r => {
-      container.appendChild(makeRow(String(ROUTINES.indexOf(r)+1).padStart(2,'0'), r.tag, r.label, r.shortDesc, bestScoreFor(r.id), () => showDetail(r.id)));
+      container.appendChild(makeRow(r.id, r.tag, r.label, r.shortDesc, bestScoreFor(r.id), () => showDetail(r.id)));
     });
     if (activeCategory === 'all' || activeCategory === 'custom') {
-      container.appendChild(makeRow(String(ROUTINES.length+1).padStart(2,'0'), 'Custom', 'Free Movement', 'Do any movement you like. Pick the body parts and intensity, and it scores you.', bestScoreFor('custom'), () => showScreen('custom')));
+      container.appendChild(makeRow('free', 'Custom', 'Free Movement', 'Do any movement you like. Pick the body parts and intensity, and it scores you.', bestScoreFor('custom'), () => showScreen('custom')));
     }
     renderNextUp(byId('nextUpRoutines'));
   }
@@ -391,7 +404,7 @@
     if (recent.length < 2) { card.style.display = 'none'; return; }
     card.style.display = 'block';
     const css = getComputedStyle(document.documentElement), col = n => css.getPropertyValue(n).trim();
-    const ink = col('--ink') || '#111111', line = col('--line') || '#D9D9D9', accent = col('--accent') || '#FF4A1C', bg = col('--bg') || '#FFFFFF';
+    const ink = col('--ink') || '#221F1B', line = col('--line') || '#D8D2C3', accent = col('--accent') || '#47614F', bg = col('--bg') || '#EAE6DC';
     const W = 320, H = 214, L = 40, R = 14, T = 16, B = 46, pw = W-L-R, ph = H-T-B;
     const px = i => L + i * pw / (recent.length - 1), py = v => T + ph - clamp01(v/100) * ph;
     let g = '';
@@ -499,7 +512,7 @@
     const ctxB = { sessions:list, streak:computeStreak(list) }, grid = byId('badgeGrid'); grid.innerHTML = '';
     BADGES.forEach(bd => {
       const ok = bd.test(ctxB), el = document.createElement('div'); el.className = 'badge ' + (ok ? 'earned' : 'locked');
-      el.innerHTML = '<b></b><span></span>'; el.querySelector('b').textContent = (ok ? '✓ ' : '') + bd.name; el.querySelector('span').textContent = bd.desc; grid.appendChild(el);
+      el.innerHTML = '<b>'+icon(ok ? 'check' : 'lock', 16)+'<i></i></b><span></span>'; el.querySelector('b i').textContent = bd.name; el.querySelector('span').textContent = bd.desc; grid.appendChild(el);
     });
   }
 
@@ -759,8 +772,8 @@
     ctx.save(); ctx.clearRect(0,0,canvasEl.width, canvasEl.height);
     if (results.poseLandmarks && activeRoutine) {
       const lm = results.poseLandmarks; lastPersonAt = performance.now();
-      window.drawConnectors(ctx, lm, window.POSE_CONNECTIONS, {color:'#FFFFFF', lineWidth:3});
-      window.drawLandmarks(ctx, lm, {color:'#111111', fillColor:'#FF4A1C', radius:4, lineWidth:1.5});
+      window.drawConnectors(ctx, lm, window.POSE_CONNECTIONS, {color:'rgba(143,183,154,0.95)', lineWidth:3});
+      window.drawLandmarks(ctx, lm, {color:'#3A2A12', fillColor:'#E3A855', radius:4, lineWidth:1});
       if (roundPhase === 'idle') { byId('beginBtnWrap').style.display = 'block'; statusPill.textContent = 'Person detected. Ready when you are.'; ctx.restore(); return; }
       if (roundPhase === 'ready') { if (!isFree()) calibSides.push(activeRoutine.sides(lm)); ctx.restore(); return; }
       if (roundPhase !== 'active') { ctx.restore(); return; }

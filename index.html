@@ -6,7 +6,7 @@
 <title>StepAlong</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
         <p>This is a working prototype. Swap this note for your own story before it's final.</p>
       </div>
       <p class="fine">StepAlong is a student-built prototype, not a medical device. Routines are inspired by published movement research but haven't been clinically tested. If you have a health condition, talk to a doctor or physical therapist before starting a new exercise routine.</p>
-      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><strong>Your camera stays private.</strong> Video is analyzed on your device while you practice. Nothing is uploaded, recorded, or saved.</span></p>
+      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><strong>Your camera stays private.</strong> Video is analyzed on your device while you practice. Nothing is uploaded, recorded, or saved.</span></p>
       <button class="primary" id="introStart">Get started</button>
     </div>
   </section>
@@ -116,7 +116,7 @@
         <li><div class="n">3</div><div class="t"><strong>Light the room</strong><span>Face a light source. Avoid a bright window behind you.</span></div></li>
         <li><div class="n">4</div><div class="t"><strong>Make it safe</strong><span>Clear the floor, wear non-slip footwear, and keep a sturdy chair or counter within reach. Stop if you feel dizzy or unwell.</span></div></li>
       </ul>
-      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Video is analyzed on your device. Nothing is uploaded, recorded, or saved.</span></p>
+      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Video is analyzed on your device. Nothing is uploaded, recorded, or saved.</span></p>
       <button class="primary" id="setupContinue">Got it, let's go</button>
     </div>
   </section>
@@ -256,7 +256,7 @@
 
       <span class="label section-title">Accessibility and sound</span>
       <div class="toggle-row"><div><b>Larger text</b><span>Makes everything bigger.</span></div><button class="switch" id="btnLargeText" role="switch" aria-checked="false" aria-label="Larger text"></button></div>
-      <div class="toggle-row"><div><b>High contrast</b><span>Black and white with a yellow highlight.</span></div><button class="switch" id="btnHighContrast" role="switch" aria-checked="false" aria-label="High contrast"></button></div>
+      <div class="toggle-row"><div><b>High contrast</b><span>Black background with bright, clear colours.</span></div><button class="switch" id="btnHighContrast" role="switch" aria-checked="false" aria-label="High contrast"></button></div>
       <div class="toggle-row"><div><b>Voice coaching</b><span>Speaks short tips during a round.</span></div><button class="switch" id="btnVoice" role="switch" aria-checked="false" aria-label="Voice coaching"></button></div>
       <div class="toggle-row"><div><b>Beat sounds</b><span>A steady beat for the rhythm routines.</span></div><button class="switch" id="btnBeats" role="switch" aria-checked="true" aria-label="Beat sounds"></button></div>
 
@@ -271,17 +271,17 @@
       <button class="ghost danger-ghost" id="resetAllBtn">Start over (replay first-time setup)</button>
 
       <span class="label section-title">About and privacy</span>
-      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><strong>Your camera stays private.</strong> Video is analyzed on your device while you practice. Nothing is uploaded, recorded, or saved. Your name and progress stay in this browser on this device.</span></p>
+      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><strong>Your camera stays private.</strong> Video is analyzed on your device while you practice. Nothing is uploaded, recorded, or saved. Your name and progress stay in this browser on this device.</span></p>
       <p class="fine">StepAlong is a student-built prototype, not a medical device. Routines are inspired by published movement research but have not been clinically tested. If you have a health condition, talk to a doctor or physical therapist before starting a new exercise routine.</p>
       <p class="fine">Pose tracking by Google MediaPipe. Built for the 2026 Congressional App Challenge. Version 1.0.</p>
     </div>
   </section>
 
   <div class="bottomnav" id="bottomnav">
-    <button class="navbtn active" id="navHome"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg> Home</button>
-    <button class="navbtn" id="navRoutines"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19L12 12L20 5"/><circle cx="4" cy="19" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="20" cy="5" r="1.6"/></svg> Routines</button>
-    <button class="navbtn" id="navProgress"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg> Progress</button>
-    <button class="navbtn" id="navSettings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg> Settings</button>
+    <button class="navbtn active" id="navHome"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9v11.5h13V9"/><path d="M10 20.5v-5h4v5"/></svg> Home</button>
+    <button class="navbtn" id="navRoutines"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg> Routines</button>
+    <button class="navbtn" id="navProgress"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-8"/><path d="M12 20V5"/><path d="M19 20v-5"/><path d="M3 20.5h18"/></svg> Progress</button>
+    <button class="navbtn" id="navSettings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9"/><path d="M17 7h3"/><path d="M4 17h3"/><path d="M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg> Settings</button>
   </div>
 
 <!-- MediaPipe versions are pinned so a new release can't change behavior before the demo.
