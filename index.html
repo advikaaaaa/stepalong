@@ -6,7 +6,7 @@
 <title>StepAlong</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,69 +14,147 @@
   <!-- INTRO -->
   <section class="screen active" id="screen-intro">
     <div class="wrap no-nav">
-      <h1>StepAlong</h1>
-      <p class="sub">A camera-based movement practice companion — no wearables required.</p>
-      <div class="why-card">
-        <p><strong style="color:var(--ink)">Why this exists:</strong> home movement practice for balance and mobility usually has no way to tell you if you're doing it right — no coach watching, no feedback, just guesswork. StepAlong uses your phone or laptop camera to watch your movement in real time and tell you how you're doing, wherever you are.</p>
-        <p>This is a working prototype — swap this note for your own story before it's final.</p>
+      <div class="appbar"><div class="brand"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L12 12L20 5" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round"/><circle cx="4" cy="19" r="2.8" fill="currentColor"/><circle cx="12" cy="12" r="2.8" fill="currentColor"/><circle cx="20" cy="5" r="3.4" class="mark-hot"/></svg>StepAlong</div></div>
+      <svg class="hero-art" viewBox="0 0 300 196" role="img" aria-label="A moving figure drawn as a pose skeleton, shown at three moments"><g opacity="0.2"><g class="bones"><line x1="60" y1="31" x2="60.0" y2="44.0"/><line x1="60.0" y1="44.0" x2="60.0" y2="100.0"/><line x1="46" y1="44" x2="74" y2="44"/><line x1="52" y1="100" x2="68" y2="100"/><line x1="46" y1="44" x2="40" y2="68"/><line x1="40" y1="68" x2="38" y2="92"/><line x1="74" y1="44" x2="80" y2="68"/><line x1="80" y1="68" x2="82" y2="92"/><line x1="52" y1="100" x2="51" y2="140"/><line x1="51" y1="140" x2="50" y2="180"/><line x1="68" y1="100" x2="69" y2="140"/><line x1="69" y1="140" x2="70" y2="180"/></g><circle class="head" cx="60" cy="22" r="9"/><g class="joints"><circle cx="46" cy="44" r="4"/><circle cx="74" cy="44" r="4"/><circle cx="52" cy="100" r="4"/><circle cx="68" cy="100" r="4"/><circle cx="40" cy="68" r="4"/><circle cx="80" cy="68" r="4"/><circle cx="38" cy="92" r="4"/><circle cx="82" cy="92" r="4"/><circle cx="51" cy="140" r="4"/><circle cx="69" cy="140" r="4"/><circle cx="50" cy="180" r="4"/><circle cx="70" cy="180" r="4"/></g></g><g opacity="0.5"><g class="bones"><line x1="150" y1="31" x2="150.0" y2="44.0"/><line x1="150.0" y1="44.0" x2="150.0" y2="100.0"/><line x1="136" y1="44" x2="164" y2="44"/><line x1="142" y1="100" x2="158" y2="100"/><line x1="136" y1="44" x2="124" y2="64"/><line x1="124" y1="64" x2="118" y2="86"/><line x1="164" y1="44" x2="172" y2="72"/><line x1="172" y1="72" x2="176" y2="96"/><line x1="142" y1="100" x2="141" y2="140"/><line x1="141" y1="140" x2="140" y2="180"/><line x1="158" y1="100" x2="174" y2="114"/><line x1="174" y1="114" x2="166" y2="152"/></g><circle class="head" cx="150" cy="22" r="9"/><g class="joints"><circle cx="136" cy="44" r="4"/><circle cx="164" cy="44" r="4"/><circle cx="142" cy="100" r="4"/><circle cx="158" cy="100" r="4"/><circle cx="124" cy="64" r="4"/><circle cx="172" cy="72" r="4"/><circle cx="118" cy="86" r="4"/><circle cx="176" cy="96" r="4"/><circle cx="141" cy="140" r="4"/><circle cx="174" cy="114" r="4"/><circle cx="140" cy="180" r="4"/><circle cx="166" cy="152" r="4"/></g></g><g opacity="1.0"><g class="bones"><line x1="240" y1="31" x2="240.0" y2="44.0"/><line x1="240.0" y1="44.0" x2="240.0" y2="100.0"/><line x1="226" y1="44" x2="254" y2="44"/><line x1="232" y1="100" x2="248" y2="100"/><line x1="226" y1="44" x2="218" y2="72"/><line x1="218" y1="72" x2="214" y2="96"/><line x1="254" y1="44" x2="266" y2="64"/><line x1="266" y1="64" x2="272" y2="86"/><line x1="232" y1="100" x2="216" y2="114"/><line x1="216" y1="114" x2="224" y2="152"/><line x1="248" y1="100" x2="249" y2="140"/><line x1="249" y1="140" x2="250" y2="180"/></g><circle class="head" cx="240" cy="22" r="9"/><g class="joints"><circle cx="226" cy="44" r="4"/><circle cx="254" cy="44" r="4"/><circle cx="232" cy="100" r="4"/><circle cx="248" cy="100" r="4"/><circle cx="218" cy="72" r="4"/><circle cx="266" cy="64" r="4"/><circle cx="214" cy="96" r="4"/><circle cx="272" cy="86" r="4"/><circle cx="216" cy="114" r="4"/><circle cx="249" cy="140" r="4"/><circle cx="224" cy="152" r="4"/><circle cx="250" cy="180" r="4"/></g></g></svg>
+      <h1>Your camera is the coach.</h1>
+      <p class="sub">A movement-practice app that watches you through your own camera and tells you how you're doing. No wearables.</p>
+      <div class="why">
+        <p><strong>Why this exists:</strong> home movement practice for balance and mobility usually has no way to tell you if you're doing it right: no coach watching, no feedback, just guesswork. StepAlong uses your phone or laptop camera to watch your movement in real time and tell you how you're doing, wherever you are.</p>
+        <p>This is a working prototype. Swap this note for your own story before it's final.</p>
       </div>
-      <p class="sub" style="line-height:1.6; margin-bottom:18px;">StepAlong is a student-built prototype, not a medical device. Routines are inspired by published movement research but haven't been clinically tested. If you have a health condition, talk to a doctor or physical therapist before starting a new exercise routine.</p>
-      <p class="privacy-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><strong style="color:var(--ink)">Your camera stays private.</strong> Video is analyzed on your device while you practice. Nothing is uploaded, recorded, or saved.</span></p>
-      <button class="primary" id="introStart">Get Started</button>
+      <p class="fine">StepAlong is a student-built prototype, not a medical device. Routines are inspired by published movement research but haven't been clinically tested. If you have a health condition, talk to a doctor or physical therapist before starting a new exercise routine.</p>
+      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><strong>Your camera stays private.</strong> Video is analyzed on your device while you practice. Nothing is uploaded, recorded, or saved.</span></p>
+      <button class="primary" id="introStart">Get started</button>
+    </div>
+  </section>
+  <!-- WIZARD (first visit) -->
+  <section class="screen" id="screen-wizard">
+    <div class="wrap no-nav">
+      <div class="appbar"><div class="brand"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L12 12L20 5" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round"/><circle cx="4" cy="19" r="2.8" fill="currentColor"/><circle cx="12" cy="12" r="2.8" fill="currentColor"/><circle cx="20" cy="5" r="3.4" class="mark-hot"/></svg> StepAlong</div><span class="label" id="wizStepLabel">Step 1 of 3</span></div>
+      <div class="dots" id="wizDots"><i class="on"></i><i></i><i></i></div>
+
+      <div class="wiz-step active" data-step="1">
+        <h2>What do you want to work on?</h2>
+        <p class="sub" style="margin-top:.4rem;">This picks the routine we suggest first. You can try everything later.</p>
+        <div class="field"><label class="label" for="wizGoal">I want to work on</label><select class="select" id="wizGoal"></select></div>
+        <div class="field"><label class="label" for="wizName">What should we call you? (optional)</label><input class="textin" id="wizName" maxlength="24" placeholder="Your first name" autocomplete="off"></div>
+        <p class="fine" style="margin-top:.7rem;">Your name stays on this device.</p>
+      </div>
+
+      <div class="wiz-step" data-step="2">
+        <h2>How steady do you feel on your feet?</h2>
+        <p class="sub" style="margin-top:.4rem;">This sets your starting level. There is no wrong answer, and you can change it any time.</p>
+        <div class="field"><label class="label" for="wizSteady">Right now I feel</label><select class="select" id="wizSteady"></select></div>
+        <p class="note" id="wizCareful" style="display:none;">We will start at the gentlest level. Keep a sturdy chair or counter within reach, and stop if you feel dizzy or unwell.</p>
+        <p class="fine" style="margin-top:.9rem;">If you have had falls or dizziness, check with your doctor before starting a new exercise routine.</p>
+      </div>
+
+      <div class="wiz-step" data-step="3">
+        <h2>Set up your routine</h2>
+        <p class="sub" style="margin-top:.4rem;">Choose what works for you. All of this can be changed in Settings.</p>
+        <div class="field"><label class="label" for="wizDays">Practice days per week</label><select class="select" id="wizDays"><option value="2">2 days</option><option value="3">3 days</option><option value="4">4 days</option><option value="5">5 days</option><option value="7">Every day</option></select></div>
+        <div class="field"><label class="label" for="wizRounds">Rounds per session</label><select class="select" id="wizRounds"><option value="1">1 round (about a minute)</option><option value="2">2 rounds</option><option value="3">3 rounds</option><option value="5">5 rounds</option></select></div>
+        <div class="field"><label class="label" for="wizText">Text size</label><select class="select" id="wizText"><option value="standard">Standard</option><option value="large">Large</option></select></div>
+        <div class="field"><label class="label" for="wizContrast">Contrast</label><select class="select" id="wizContrast"><option value="standard">Standard</option><option value="high">High contrast</option></select></div>
+        <div class="field"><label class="label" for="wizVoice">Voice coaching</label><select class="select" id="wizVoice"><option value="off">Off</option><option value="on">On (spoken tips)</option></select></div>
+        <div class="field"><label class="label" for="wizBeats">Beat sounds for rhythm routines</label><select class="select" id="wizBeats"><option value="on">On</option><option value="off">Off</option></select></div>
+      </div>
+
+      <div class="wiz-nav"><button class="ghost" id="wizBack">Back</button><button class="primary" id="wizNext">Next</button></div>
+    </div>
+  </section>
+
+  <!-- HOME -->
+  <section class="screen" id="screen-home">
+    <div class="wrap with-nav">
+      <div class="appbar"><div class="brand"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L12 12L20 5" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round"/><circle cx="4" cy="19" r="2.8" fill="currentColor"/><circle cx="12" cy="12" r="2.8" fill="currentColor"/><circle cx="20" cy="5" r="3.4" class="mark-hot"/></svg> StepAlong</div></div>
+      <h1 class="home-h1" id="homeGreeting">Good morning.</h1>
+      <p class="sub" id="homeMotto">Move a little. Notice the difference.</p>
+      <p class="welcomeback" id="welcomeBack" style="display:none;"></p>
+      <div id="nextUpHome"></div>
+      <div class="card" id="weekCard"></div>
+      <div class="stats-row" id="homeStats"></div>
+      <div class="card" id="lastRoundCard"></div>
     </div>
   </section>
 
   <!-- ROUTINE LIST -->
   <section class="screen" id="screen-routines">
     <div class="wrap with-nav">
-      <div class="topbar">
-        <h2>Choose a routine</h2>
-        <div class="a11y-row">
-          <button class="a11y-btn" id="btnLargeText">Aa</button>
-          <button class="a11y-btn" id="btnHighContrast">◐</button>
-          <button class="a11y-btn" id="btnVoice">🔊</button>
-        </div>
-      </div>
-      <p class="sub">Filter by what you want to work on.</p>
+      <div class="appbar"><div class="brand"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L12 12L20 5" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round"/><circle cx="4" cy="19" r="2.8" fill="currentColor"/><circle cx="12" cy="12" r="2.8" fill="currentColor"/><circle cx="20" cy="5" r="3.4" class="mark-hot"/></svg> StepAlong</div></div>
+      <h2>Routines</h2>
+      <p class="sub" style="margin-top:.4rem;">Pick one to see how it works, then start. Each targets a different balance or coordination skill.</p>
       <div class="chips" id="chips">
         <button class="chip active" data-cat="all">All</button>
         <button class="chip" data-cat="legs">Legs &amp; Balance</button>
-        <button class="chip" data-cat="arms">Arms &amp; Coordination</button>
+        <button class="chip" data-cat="arms">Arms</button>
+        <button class="chip" data-cat="custom">Custom</button>
       </div>
       <div class="routine-list" id="routineList"></div>
+      <div id="nextUpRoutines"></div>
+    </div>
+  </section>
+
+  <!-- ROUTINE DETAIL -->
+  <section class="screen" id="screen-detail">
+    <div class="wrap no-nav">
+      <div class="appbar"><button class="backbtn" id="closeDetail" aria-label="Back to routines">← Routines</button></div>
+      <div id="detailBody"></div>
+      <button class="primary" id="detailStart" style="margin-top:1.4rem;">Start</button>
     </div>
   </section>
 
   <!-- SETUP -->
   <section class="screen" id="screen-setup">
     <div class="wrap no-nav">
-      <div class="topbar">
-        <h2>Set up your space</h2>
-        <button class="iconbtn" id="closeSetup">✕</button>
-      </div>
-      <p class="sub">A minute of setup makes the tracking much more accurate and keeps practice safe.</p>
+      <div class="appbar"><span class="label">Before you start</span><button class="backbtn" id="closeSetup" aria-label="Close setup tips">Close ✕</button></div>
+      <h2>Set up your space</h2>
+      <p class="sub" style="margin-top:.4rem;">A minute of setup makes the tracking much more accurate and keeps practice safe.</p>
       <ul class="setup-list">
         <li><div class="n">1</div><div class="t"><strong>Position the camera</strong><span>Prop your phone or laptop at about chest height so it can see you from head to toe.</span></div></li>
         <li><div class="n">2</div><div class="t"><strong>Step back about 6 feet (2 m)</strong><span>Your whole body, feet included, should fit in the frame.</span></div></li>
         <li><div class="n">3</div><div class="t"><strong>Light the room</strong><span>Face a light source. Avoid a bright window behind you.</span></div></li>
         <li><div class="n">4</div><div class="t"><strong>Make it safe</strong><span>Clear the floor, wear non-slip footwear, and keep a sturdy chair or counter within reach. Stop if you feel dizzy or unwell.</span></div></li>
       </ul>
-      <p class="privacy-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Video is analyzed on your device. Nothing is uploaded, recorded, or saved.</span></p>
-      <button class="primary" id="setupContinue">Got it — let's go</button>
+      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Video is analyzed on your device. Nothing is uploaded, recorded, or saved.</span></p>
+      <button class="primary" id="setupContinue">Got it, let's go</button>
     </div>
   </section>
-
+  <!-- FREE MOVEMENT BUILDER -->
+  <section class="screen" id="screen-custom">
+    <div class="wrap no-nav">
+      <div class="appbar"><button class="backbtn" id="closeCustom" aria-label="Back to routines">← Routines</button><span class="label">Custom</span></div>
+      <h2>Free movement</h2>
+      <p class="sub" style="margin-top:.4rem;">Do any movement you like. Choose what to track and how hard it should be, and StepAlong scores it.</p>
+      <div class="field"><span class="label">Quick start</span>
+        <div class="optrow" id="presetRow">
+          <button class="opt" data-preset="jacks">Jumping jacks</button><button class="opt" data-preset="raises">Arm raises</button>
+          <button class="opt" data-preset="knees">High knees</button><button class="opt" data-preset="squats">Squats</button><button class="opt" data-preset="bends">Side bends</button>
+        </div></div>
+      <div class="field"><span class="label">Body parts to track (pick any)</span>
+        <div class="optrow" id="partsRow"><button class="opt" data-part="arms">Arms</button><button class="opt" data-part="legs">Legs</button><button class="opt" data-part="torso">Torso</button></div></div>
+      <div class="field"><span class="label">Intensity</span>
+        <div class="seg" id="intensitySeg"><button data-v="low">Low</button><button data-v="medium">Medium</button><button data-v="high">High</button></div></div>
+      <div class="field"><span class="label">Pace</span>
+        <div class="seg" id="paceSeg"><button data-v="slow">Slow</button><button data-v="medium">Medium</button><button data-v="fast">Fast</button></div></div>
+      <div class="field"><label class="label" for="customName">Name (optional)</label><input class="textin" id="customName" maxlength="24" placeholder="e.g. Jumping jacks" autocomplete="off"></div>
+      <p class="fine" id="customSummary" style="margin-top:1rem;"></p>
+      <p class="fine">Every body part you pick has to move in full-size repeats, so moving only some of them will not count.</p>
+      <p class="form-error" id="customError" role="alert"></p>
+      <button class="primary" id="customStart" style="margin-top:1rem;">Start</button>
+    </div>
+  </section>
   <!-- PRACTICE -->
   <section class="screen" id="screen-practice">
     <div class="wrap no-nav">
-      <div class="topbar">
-        <div>
-          <h2 id="practiceTitle">Routine</h2>
-          <p class="sub" id="practiceCategory" style="margin-top:2px;"></p>
-        </div>
-        <button class="iconbtn" id="closeToRoutines">✕</button>
+      <div class="kicker">
+        <button class="backbtn" id="closeToRoutines" aria-label="Back to routines">← Routines</button>
+        <span class="label" id="practiceCategory"></span>
       </div>
-      <p class="sub" id="practiceHint" style="margin-bottom:12px;">Instructions</p>
+      <h2 id="practiceTitle">Routine</h2>
+      <p class="sub" id="practiceHint" style="margin-top:.4rem;">Instructions</p>
+      <div class="tierpick" id="tierPicker" role="group" aria-label="Difficulty tier"><button data-tier="0">Tier 1</button><button data-tier="1">Tier 2</button><button data-tier="2">Tier 3</button></div>
+      <p class="tier-info" id="tierInfo"></p>
 
       <div class="stage" id="stage">
         <video id="video" playsinline muted></video>
@@ -87,92 +165,127 @@
         <div class="stage-empty" id="stageEmpty">
           <p>Start the camera to begin tracking. Stand back so your whole body is visible.</p>
           <div class="camera-error" id="cameraError" role="alert"></div>
-          <button class="primary" id="startBtn" style="width:auto;">Start Camera</button>
+          <button class="primary" id="startBtn">Start camera</button>
           <button class="linkbtn" id="setupTipsLink">Setup tips</button>
         </div>
 
+        <div class="overlay" id="loadingOverlay" role="status"><div class="loader" aria-hidden="true"><i></i><i></i><i></i></div><div class="calib" id="loadingText">Loading pose model…</div></div>
+
         <div class="begin-btn-wrap" id="beginBtnWrap" style="display:none;">
-          <button class="primary" id="beginBtn">Begin Round</button>
+          <button class="primary" id="beginBtn">Begin round</button>
         </div>
 
         <div class="overlay" id="readyOverlay">
           <div class="big-num" id="readyNum">3</div>
-          <div style="font-size:13px;color:#D9D5C8;">Stand still — calibrating</div>
+          <div class="calib">Stand still — calibrating</div>
         </div>
 
-        <div class="overlay" id="completeOverlay">
-          <h3>Round complete!</h3>
-          <div class="stats">
-            <div><div class="stat-num" id="statAvg">–</div><div class="stat-label">Avg Score</div></div>
-            <div><div class="stat-num" id="statReps">0</div><div class="stat-label">Reps</div></div>
+        <div class="overlay scroll" id="completeOverlay">
+          <div class="overlay-inner">
+            <div class="label">Round complete</div>
+            <div class="stats">
+              <div><div class="stat-num hot" id="statAvg">–</div><div class="label">Round score</div></div>
+              <div><div class="stat-num" id="statReps">0</div><div class="label">Reps</div></div>
+            </div>
+            <div class="bd">
+              <div class="bd-row"><span>Reps</span><div class="bd-track"><div class="bd-fill" id="bdRepsFill"></div></div><b id="bdRepsVal">0</b></div>
+              <div class="bd-row"><span>Range</span><div class="bd-track"><div class="bd-fill" id="bdRangeFill"></div></div><b id="bdRangeVal">0</b></div>
+              <div class="bd-row"><span>Consistency</span><div class="bd-track"><div class="bd-fill" id="bdConsFill"></div></div><b id="bdConsVal">0</b></div>
+            </div>
+            <div class="label" id="sideTitle">Left vs right</div>
+            <div class="bd" id="sideBars"></div>
+            <p class="coach" id="coachLine"></p>
+            <button class="primary" id="anotherRoundBtn">Another round</button>
+            <button class="ghost" id="doneRoundBtn">Back to routines</button>
           </div>
-          <button class="primary" id="anotherRoundBtn">Do Another Round</button>
-          <button class="ghost" id="doneRoundBtn">Back to Routines</button>
         </div>
       </div>
 
-      <div class="score-row">
-        <div class="score-gauge">
-          <svg width="78" height="78" viewBox="0 0 78 78">
-            <circle cx="39" cy="39" r="33" fill="none" stroke="var(--line)" stroke-width="7"/>
-            <circle id="gaugeArc" cx="39" cy="39" r="33" fill="none" stroke="var(--moss)" stroke-width="7" stroke-linecap="round" stroke-dasharray="207" stroke-dashoffset="207"/>
-          </svg>
-          <div class="num" id="scoreNum">–</div>
-        </div>
-        <div class="score-label">
-          <strong>Match</strong>
-          <span>How closely you're matching the target right now.</span>
-          <div class="hold-bar-track"><div class="hold-bar-fill" id="holdBarFill"></div></div>
-        </div>
+      <div class="scoreboard">
+        <div><div class="label">Match</div><div class="sb-score" id="scoreNum">–</div></div>
+        <div class="sb-side"><div class="label">Reps</div><div class="sb-reps" id="repCount">0</div><span class="sb-tier" id="tierLabel">Tier 1</span></div>
       </div>
+      <div class="meter" role="img" aria-label="Match meter, line marks 70 where a rep can count"><div class="meter-fill" id="scoreFill"></div><div class="meter-mark"></div></div>
+      <div class="meter-note"><span>0</span><span>Hold past the line to count a rep</span><span>100</span></div>
+      <div class="hold"><span class="label">Hold</span><div class="hold-track"><div class="hold-fill" id="holdBarFill"></div></div></div>
 
-      <div class="rep-row">
-        <div><div class="count" id="repCount">0</div><div class="sub" style="font-size:11.5px; margin-top:0;">completed</div></div>
-        <div class="tier" id="tierLabel">Tier 1</div>
-      </div>
-
-      <div class="feedback-line" id="feedbackLine"></div>
+      <div class="feedback-line" id="feedbackLine" aria-live="polite"></div>
       <div class="status-pill" id="statusPill">Camera not started</div>
 
       <details>
         <summary>Research behind this routine</summary>
         <p id="researchNote"></p>
       </details>
-
       <details>
         <summary>How the scoring works</summary>
-        <p>MediaPipe's pose model returns 33 body landmarks per frame. Each routine tracks a specific landmark relationship, normalized by body proportions and smoothed across frames to avoid jitter. A rep counts once you hold a good match (70+) steadily for about half a second — not just pass through it.</p>
+        <p>MediaPipe's pose model returns 33 body landmarks per frame. Each routine measures how far you move from your own resting position, scaled to your body size and smoothed to avoid jitter. Reaching the target size scores about 70, and a 100 needs you to go 20% beyond it. A rep counts when you hold at least 70 for the tier's hold time, and reps must alternate sides (left then right, heels then toes). Your round score is reps (40%), range (35%) and consistency (25%), so a 100 takes full-size, even reps at the target pace.</p>
       </details>
-
-      <p class="sub" style="margin-top:14px; line-height:1.6;">Not a medical device. Inspired by published research, not clinically tested — check with a doctor or physical therapist before starting a new exercise routine.</p>
+      <p class="fine disclaimer">Not a medical device. Inspired by published research, not clinically tested. Check with a doctor or physical therapist before starting a new exercise routine.</p>
     </div>
   </section>
-
   <!-- PROGRESS -->
   <section class="screen" id="screen-progress">
     <div class="wrap with-nav">
-      <div class="topbar"><h2>Your progress</h2></div>
-      <p class="sub">Recent rounds, most recent first.</p>
+      <div class="appbar"><div class="brand"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L12 12L20 5" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round"/><circle cx="4" cy="19" r="2.8" fill="currentColor"/><circle cx="12" cy="12" r="2.8" fill="currentColor"/><circle cx="20" cy="5" r="3.4" class="mark-hot"/></svg> StepAlong</div></div>
+      <h2>Progress</h2>
+      <p class="sub" style="margin-top:.4rem;">How your rounds are going.</p>
       <div class="stats-row" id="statsRow"></div>
+      <div class="empty" id="progressEmpty" style="display:none;"></div>
       <div class="trend-card" id="trendCard" style="display:none;">
-        <h4>Score trend (last 10 rounds)</h4>
-        <svg id="trendSvg" viewBox="0 0 280 56" preserveAspectRatio="none"></svg>
+        <h4>Round score, last 10 rounds</h4>
+        <svg id="trendSvg" viewBox="0 0 320 214" role="img" aria-label="Line chart of your round scores, from 0 to 100"></svg>
       </div>
-      <div class="progress-list" id="progressList"></div>
-      <p class="empty-note" id="progressEmpty" style="display:none;">No rounds yet — finish a routine to see it here.</p>
-      <button class="ghost danger-ghost" id="resetProgressBtn" style="display:none; margin-top:18px;">Reset progress</button>
+      <div id="bestSection" style="display:none;"><span class="label section-title">Best by routine</span><div class="progress-list" id="bestList"></div></div>
+      <div id="badgeSection"><span class="label section-title">Badges</span><div class="badges" id="badgeGrid"></div></div>
+      <div id="recentSection" style="display:none;"><span class="label section-title">Recent rounds</span><div class="progress-list" id="progressList"></div></div>
+      <div id="nextUpProgress"></div>
+    </div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="screen" id="screen-settings">
+    <div class="wrap with-nav">
+      <div class="appbar"><div class="brand"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L12 12L20 5" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round"/><circle cx="4" cy="19" r="2.8" fill="currentColor"/><circle cx="12" cy="12" r="2.8" fill="currentColor"/><circle cx="20" cy="5" r="3.4" class="mark-hot"/></svg> StepAlong</div></div>
+      <h2>Settings</h2>
+
+      <span class="label section-title">You</span>
+      <div class="field" style="margin-top:.3rem;"><label class="label" for="setName">Name (optional)</label><input class="textin" id="setName" maxlength="24" placeholder="Your first name" autocomplete="off"></div>
+      <div class="field"><label class="label" for="setDays">Practice days per week</label><select class="select" id="setDays"><option value="2">2 days</option><option value="3">3 days</option><option value="4">4 days</option><option value="5">5 days</option><option value="7">Every day</option></select></div>
+      <div class="field"><label class="label" for="setRounds">Rounds per session</label><select class="select" id="setRounds"><option value="1">1 round</option><option value="2">2 rounds</option><option value="3">3 rounds</option><option value="5">5 rounds</option></select></div>
+      <button class="ghost" id="btnRerunWizard">Run the setup again</button>
+
+      <span class="label section-title">Accessibility and sound</span>
+      <div class="toggle-row"><div><b>Larger text</b><span>Makes everything bigger.</span></div><button class="switch" id="btnLargeText" role="switch" aria-checked="false" aria-label="Larger text"></button></div>
+      <div class="toggle-row"><div><b>High contrast</b><span>Black and white with a yellow highlight.</span></div><button class="switch" id="btnHighContrast" role="switch" aria-checked="false" aria-label="High contrast"></button></div>
+      <div class="toggle-row"><div><b>Voice coaching</b><span>Speaks short tips during a round.</span></div><button class="switch" id="btnVoice" role="switch" aria-checked="false" aria-label="Voice coaching"></button></div>
+      <div class="toggle-row"><div><b>Beat sounds</b><span>A steady beat for the rhythm routines.</span></div><button class="switch" id="btnBeats" role="switch" aria-checked="true" aria-label="Beat sounds"></button></div>
+
+      <span class="label section-title">Share your progress</span>
+      <p class="sub">A text summary you can send to a therapist or coach. It never includes video.</p>
+      <textarea class="summary" id="summaryText" readonly rows="9" aria-label="Progress summary"></textarea>
+      <div class="btn-row"><button class="ghost" id="copySummaryBtn">Copy</button><button class="ghost" id="downloadSummaryBtn">Download .txt</button></div>
+      <p class="fine" id="summaryStatus" role="status"></p>
+
+      <span class="label section-title">Your data</span>
+      <button class="ghost danger-ghost" id="resetProgressBtn" style="margin-top:.2rem;">Reset progress</button>
+      <button class="ghost danger-ghost" id="resetAllBtn">Start over (replay first-time setup)</button>
+
+      <span class="label section-title">About and privacy</span>
+      <p class="privacy-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><strong>Your camera stays private.</strong> Video is analyzed on your device while you practice. Nothing is uploaded, recorded, or saved. Your name and progress stay in this browser on this device.</span></p>
+      <p class="fine">StepAlong is a student-built prototype, not a medical device. Routines are inspired by published movement research but have not been clinically tested. If you have a health condition, talk to a doctor or physical therapist before starting a new exercise routine.</p>
+      <p class="fine">Pose tracking by Google MediaPipe. Built for the 2026 Congressional App Challenge. Version 1.0.</p>
     </div>
   </section>
 
   <div class="bottomnav" id="bottomnav">
-    <button class="navbtn active" id="navRoutines"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>Routines</button>
-    <button class="navbtn" id="navProgress"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>Progress</button>
+    <button class="navbtn active" id="navHome"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg> Home</button>
+    <button class="navbtn" id="navRoutines"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19L12 12L20 5"/><circle cx="4" cy="19" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="20" cy="5" r="1.6"/></svg> Routines</button>
+    <button class="navbtn" id="navProgress"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg> Progress</button>
+    <button class="navbtn" id="navSettings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg> Settings</button>
   </div>
 
-<!-- MediaPipe versions are pinned so a new release can't change behavior before the demo.
-     If you change the pose version, update POSE_VERSION in app.js to match. -->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1675466124/drawing_utils.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/pose.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
 <script src="app.js"></script>
 </body>
 </html>

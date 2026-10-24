@@ -6,7 +6,7 @@
   "description": "Camera-based movement practice in the browser. Plain HTML/CSS/JS, no build step.",
   "scripts": {
     "dev": "http-server . -p 8001 -c-1",
-    "test": "node --check app.js && node tests/e2e-smoke.js"
+    "test": "node --check app.js && node tests/e2e-smoke.js && node tests/nav-smoke.js"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
