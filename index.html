@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-scheme="garden" data-mode="auto">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -58,6 +58,8 @@
         <div class="field"><label class="label" for="wizContrast">Contrast</label><select class="select" id="wizContrast"><option value="standard">Standard</option><option value="high">High contrast</option></select></div>
         <div class="field"><label class="label" for="wizVoice">Voice coaching</label><select class="select" id="wizVoice"><option value="off">Off</option><option value="on">On (spoken tips)</option></select></div>
         <div class="field"><label class="label" for="wizBeats">Beat sounds for rhythm routines</label><select class="select" id="wizBeats"><option value="on">On</option><option value="off">Off</option></select></div>
+        <div class="field"><span class="label" id="wizSchemeLabel">Colours</span><div class="swatches" id="wizScheme" role="radiogroup" aria-labelledby="wizSchemeLabel"></div></div>
+        <div class="field"><span class="label" id="wizModeLabel">Light or dark</span><div class="seg" id="wizMode" role="radiogroup" aria-labelledby="wizModeLabel"><button data-mode="auto" role="radio">Match my device</button><button data-mode="light" role="radio">Light</button><button data-mode="dark" role="radio">Dark</button></div></div>
       </div>
 
       <div class="wiz-nav"><button class="ghost" id="wizBack">Back</button><button class="primary" id="wizNext">Next</button></div>
@@ -253,6 +255,11 @@
       <div class="field"><label class="label" for="setDays">Practice days per week</label><select class="select" id="setDays"><option value="2">2 days</option><option value="3">3 days</option><option value="4">4 days</option><option value="5">5 days</option><option value="7">Every day</option></select></div>
       <div class="field"><label class="label" for="setRounds">Rounds per session</label><select class="select" id="setRounds"><option value="1">1 round</option><option value="2">2 rounds</option><option value="3">3 rounds</option><option value="5">5 rounds</option></select></div>
       <button class="ghost" id="btnRerunWizard">Run the setup again</button>
+
+      <span class="label section-title">Look and feel</span>
+      <p class="sub">Pick the colours you enjoy most. Changes apply right away.</p>
+      <div class="field" style="margin-top:.8rem;"><span class="label" id="setSchemeLabel">Colours</span><div class="swatches" id="setScheme" role="radiogroup" aria-labelledby="setSchemeLabel"></div></div>
+      <div class="field"><span class="label" id="setModeLabel">Light or dark</span><div class="seg" id="setMode" role="radiogroup" aria-labelledby="setModeLabel"><button data-mode="auto" role="radio">Match my device</button><button data-mode="light" role="radio">Light</button><button data-mode="dark" role="radio">Dark</button></div></div>
 
       <span class="label section-title">Accessibility and sound</span>
       <div class="toggle-row"><div><b>Larger text</b><span>Makes everything bigger.</span></div><button class="switch" id="btnLargeText" role="switch" aria-checked="false" aria-label="Larger text"></button></div>

@@ -67,7 +67,8 @@ StepAlong is meant for people who may have limited mobility, so accessibility se
 - **High contrast**: a black background with bright, clear colours
 - **Voice coaching**: short spoken tips during a round, so you don't have to watch the screen
 - **Beat sounds** for the rhythm routines, which can be switched off
-- Automatic dark mode, keyboard focus outlines, reduced motion support, and a mobile-first layout
+- Four colour schemes (Garden, Ember (orange and black), Sky, Blossom), each with light and dark versions; dark mode can follow the device or be chosen
+- Keyboard focus outlines, reduced motion support, and a mobile-first layout
 - First-run **setup tips** for camera placement, lighting and a safe practice space
 
 ## Privacy
@@ -126,7 +127,7 @@ The tests run the app in a simulated browser with fake body poses:
 
 ```
 index.html        screens and layout
-styles.css        styling, colour theme, dark and high-contrast modes
+styles.css        styling, colour schemes, dark and high-contrast modes
 app.js            routines, pose scoring, round flow, wizard, progress, settings
 tests/            scoring (e2e-smoke) and navigation (nav-smoke) tests
 docs/scoring.md   how the scoring works
