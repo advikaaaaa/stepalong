@@ -29,6 +29,9 @@ const sess = (id, avg, reps, tier, hoursAgo, tip) => ({ routineId:id, date:Date.
   A.click('wizBack'); check('Back returns to step 1', A.$('wizStepLabel').textContent==='Step 1 of 3');
   A.click('wizNext'); A.click('wizNext'); check('step 3: routine setup', A.$('wizStepLabel').textContent==='Step 3 of 3' && A.$('wizNext').textContent==='Finish');
   check('step 3 has 6 dropdowns', ['wizDays','wizRounds','wizText','wizContrast','wizVoice','wizBeats'].every(id => A.$(id).tagName==='SELECT'));
+  check('wizard offers 4 colour schemes, Garden + device mode by default', A.$('wizScheme').querySelectorAll('button').length===4 && A.d.documentElement.getAttribute('data-scheme')==='garden' && A.d.documentElement.getAttribute('data-mode')==='auto');
+  A.$('wizScheme').querySelector('[data-scheme="sky"]').click(); A.$('wizMode').querySelector('[data-mode="dark"]').click();
+  check('picking Sky + Dark in the wizard applies right away', A.d.documentElement.getAttribute('data-scheme')==='sky' && A.d.documentElement.getAttribute('data-mode')==='dark' && A.$('wizScheme').querySelector('[data-scheme="sky"]').getAttribute('aria-checked')==='true');
   A.set('wizDays','4'); A.set('wizRounds','2'); A.set('wizText','large'); A.set('wizContrast','high'); A.set('wizVoice','on'); A.set('wizBeats','off');
   A.click('wizNext');
   check('Finish lands on Home with the tab bar', A.active()==='screen-home' && A.$('bottomnav').classList.contains('show'));
@@ -74,6 +77,10 @@ const sess = (id, avg, reps, tier, hoursAgo, tip) => ({ routineId:id, date:Date.
   check('name + goal fields prefilled', B.$('setName').value==='Sam' && B.$('setDays').value==='4' && B.$('setRounds').value==='2');
   check('switches mirror the saved profile', B.$('btnLargeText').classList.contains('on') && B.$('btnHighContrast').classList.contains('on') && B.$('btnVoice').classList.contains('on') && !B.$('btnBeats').classList.contains('on'));
   B.click('btnLargeText'); check('turning large text off updates the whole app', !B.d.documentElement.classList.contains('large-text') && JSON.parse(B.w.localStorage.getItem('stepalong_profile_v1')).text==='standard');
+  check('Settings colour pickers mirror the saved profile', B.$('setScheme').querySelector('.active').dataset.scheme==='sky' && B.$('setMode').querySelector('.active').dataset.mode==='dark');
+  B.$('setScheme').querySelector('[data-scheme="blossom"]').click(); B.$('setMode').querySelector('[data-mode="auto"]').click();
+  const p2 = JSON.parse(B.w.localStorage.getItem('stepalong_profile_v1'));
+  check('changing colours in Settings saves and applies', p2.scheme==='blossom' && p2.mode==='auto' && B.d.documentElement.getAttribute('data-scheme')==='blossom' && B.$('wizScheme').querySelector('.active').dataset.scheme==='blossom');
   B.click('btnBeats'); check('beat sounds can be turned on', B.$('btnBeats').classList.contains('on'));
   B.$('setName').value='Sam R'; B.$('setName').dispatchEvent(new B.w.Event('input')); B.set('setDays','5');
   check('name + weekly goal edits are saved', JSON.parse(B.w.localStorage.getItem('stepalong_profile_v1')).name==='Sam R' && JSON.parse(B.w.localStorage.getItem('stepalong_profile_v1')).days===5);

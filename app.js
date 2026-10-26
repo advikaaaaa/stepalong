@@ -44,14 +44,42 @@
     little: { label:'A little unsteady, I like something to hold',     tier:0, careful:true },
     gentle: { label:'I would rather start slow and gentle',            tier:0, careful:true }
   };
-  const DEFAULT_PROFILE = { name:'', goal:'all', steady:'mostly', days:3, rounds:1, text:'standard', contrast:'standard', voice:'off', beats:'on', onboarded:false };
+  const DEFAULT_PROFILE = { name:'', goal:'all', steady:'mostly', days:3, rounds:1, text:'standard', contrast:'standard', voice:'off', beats:'on', scheme:'garden', mode:'auto', onboarded:false };
   let profile = Object.assign({}, DEFAULT_PROFILE, lsGet(PROFILE_KEY, {}));
   function saveProfile(){ lsSet(PROFILE_KEY, profile); }
 
   // ---------- accessibility / sound (stored in the profile, applied everywhere) ----------
   let largeText=false, highContrast=false, voiceOn=false, beatsOn=true;
   function setSwitch(id, on){ const el = byId(id); el.classList.toggle('on', on); el.setAttribute('aria-checked', on ? 'true' : 'false'); }
+  // Colour schemes: the actual colours live in styles.css (one block per scheme, light and dark).
+  // Here we only need each scheme's name and two preview colours for the swatch buttons.
+  const SCHEMES = {
+    garden:  { label:'Garden',  bg:'#EAE6DC', accent:'#47614F' },
+    ember:   { label:'Ember',   bg:'#1C1A18', accent:'#FF8A3D' },   // orange and black
+    sky:     { label:'Sky',     bg:'#EAF4FC', accent:'#1D66A8' },
+    blossom: { label:'Blossom', bg:'#FCEFF4', accent:'#9C3468' }
+  };
+  const MODES = ['auto', 'light', 'dark'];   // auto = follow the device's light/dark setting
+  function renderSchemePickers(){
+    ['wizScheme', 'setScheme'].forEach(id => {
+      const box = byId(id); box.innerHTML = '';
+      Object.keys(SCHEMES).forEach(key => {
+        const s = SCHEMES[key], b = document.createElement('button'), dot = document.createElement('i'), name = document.createElement('span');
+        b.type = 'button'; b.dataset.scheme = key; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', key === profile.scheme ? 'true' : 'false');
+        b.classList.toggle('active', key === profile.scheme);
+        dot.style.background = 'linear-gradient(135deg, ' + s.bg + ' 50%, ' + s.accent + ' 50%)'; dot.setAttribute('aria-hidden', 'true');
+        name.textContent = s.label; b.appendChild(dot); b.appendChild(name); box.appendChild(b);
+      });
+    });
+    document.querySelectorAll('#wizMode button, #setMode button').forEach(b => {
+      const on = b.dataset.mode === profile.mode; b.classList.toggle('active', on); b.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+  }
   function applyProfile(){
+    if (!SCHEMES[profile.scheme]) profile.scheme = 'garden';   // older profiles have no scheme saved
+    if (MODES.indexOf(profile.mode) === -1) profile.mode = 'auto';
+    document.documentElement.setAttribute('data-scheme', profile.scheme); document.documentElement.setAttribute('data-mode', profile.mode);
+    renderSchemePickers();
     largeText = profile.text === 'large'; document.documentElement.classList.toggle('large-text', largeText);
     highContrast = profile.contrast === 'high'; document.documentElement.setAttribute('data-contrast', highContrast ? 'high' : 'normal');
     voiceOn = profile.voice === 'on'; beatsOn = profile.beats !== 'off';
@@ -65,6 +93,13 @@
   byId('btnHighContrast').addEventListener('click', () => { profile.contrast = profile.contrast === 'high' ? 'standard' : 'high'; saveProfile(); applyProfile(); });
   byId('btnVoice').addEventListener('click', () => { profile.voice = profile.voice === 'on' ? 'off' : 'on'; saveProfile(); applyProfile(); if (voiceOn) speak('Voice coaching on'); });
   byId('btnBeats').addEventListener('click', () => { profile.beats = profile.beats === 'off' ? 'on' : 'off'; saveProfile(); applyProfile(); });
+  // The same pickers appear in the wizard and in Settings; a choice applies (and saves) right away in both.
+  ['wizScheme', 'setScheme'].forEach(id => byId(id).addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return; profile.scheme = b.dataset.scheme; saveProfile(); applyProfile();
+  }));
+  ['wizMode', 'setMode'].forEach(id => byId(id).addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return; profile.mode = b.dataset.mode; saveProfile(); applyProfile();
+  }));
   let lastSpokenAt = 0;
   function maybeSpeak(text, gapMs){ const now = Date.now(); if (now - lastSpokenAt > gapMs) { speak(text); lastSpokenAt = now; } }
 
